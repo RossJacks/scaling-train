@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ross' Rotisserie - Menu</title>
+</head>
+<body>
+    <header>
+        <h1>Ross' Rotisserie Menu</h1>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="menu.html">Menu</a></li>
+                <li><a href="about.html">About Us</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section>
+            <h2>Our Delicious Offerings</h2>
+            <img src="https://picsum.photos/800/400?random=2" alt="Variety of rotisserie dishes" width="800" height="400">
+        </section>
+
+        <section>
+            <h3>Rotisserie Chicken</h3>
+            <table border="1">
+                <caption>Chicken Options</caption>
+                <thead>
+                    <tr>
+                        <th>Item</th>
+                        <th>Description</th>
+                        <th>Price</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Whole Chicken</td>
+                        <td>Perfectly seasoned whole chicken</td>
+                        <td>$12.99</td>
+                    </tr>
+                    <tr>
+                        <td>Half Chicken</td>
+                        <td>Half a rotisserie chicken</td>
+                        <td>$7.99</td>
+                    </tr>
+                    <tr>
+                        <td>Quarter Chicken</td>
+                        <td>White or dark meat quarter</td>
+                        <td>$4.99</td>
+                    </tr>
+                    <tr>
+                        <td>Family Pack</td>
+                        <td>2 whole chickens + 4 sides</td>
+                        <td>$29.99</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+        <section>
+            <h3>Side Dishes</h3>
+            <img src="https://picsum.photos/600/300?random=3" alt="Delicious side dishes" width="600" height="300">
+            <dl>
+                <dt>Mashed Potatoes</dt>
+                <dd>Creamy, buttery mashed potatoes with gravy</dd>
+                
+                <dt>Coleslaw</dt>
+                <dd>Fresh cabbage slaw with our special dressing</dd>
+                
+                <dt>Corn on the Cob</dt>
+                <dd>Grilled corn with butter and herbs</dd>
+                
+                <dt>Green Beans</dt>
+                <dd>Seasoned green beans with almonds</dd>
+                
+                <dt>Mac and Cheese</dt>
+                <dd>Classic creamy macaroni and cheese</dd>
+                
+                <dt>Caesar Salad</dt>
+                <dd>Fresh romaine lettuce with Caesar dressing and croutons</dd>
+            </dl>
+        </section>
+
+        <section>
+            <h3>Beverages</h3>
+            <ul>
+                <li>Soft Drinks (Coke, Pepsi, Sprite, etc.)</li>
+                <li>Iced Tea (Sweet or Unsweet)</li>
+                <li>Lemonade</li>
+                <li>Bottled Water</li>
+                <li>Coffee</li>
+            </ul>
+        </section>
+
+        <section>
+            <h3>Desserts</h3>
+            <ol>
+                <li>Apple Pie</li>
+                <li>Chocolate Cake</li>
+                <li>Cookies (Chocolate Chip, Oatmeal Raisin)</li>
+                <li>Ice Cream (Vanilla, Chocolate, Strawberry)</li>
+            </ol>
+        </section>
+
+        <aside>
+            <h4>Special Offers</h4>
+            <p><mark>Tuesday Special:</mark> Buy one whole chicken, get a free side dish!</p>
+            <p><mark>Weekend Deal:</mark> Family pack only $24.99 (save $5!)</p>
+        </aside>
+
+        <section>
+            <h3>Order Online</h3>
+            <form action="#" method="post">
+                <fieldset>
+                    <legend>Contact Information</legend>
+                    <label for="name">Name:</label><br>
+                    <input type="text" id="name" name="name" required><br><br>
+                    
+                    <label for="email">Email:</label><br>
+                    <input type="email" id="email" name="email" required><br><br>
+                    
+                    <label for="phone">Phone:</label><br>
+                    <input type="tel" id="phone" name="phone"><br><br>
+                </fieldset>
+
+                <fieldset>
+                    <legend>Order Details</legend>
+                    <label for="item">Select Item:</label><br>
+                    <select id="item" name="item">
+                        <option value="">Choose an option</option>
+                        <option value="whole">Whole Chicken</option>
+                        <option value="half">Half Chicken</option>
+                        <option value="quarter">Quarter Chicken</option>
+                        <option value="family">Family Pack</option>
+                    </select><br><br>
+                    
+                    <label for="quantity">Quantity:</label><br>
+                    <input type="number" id="quantity" name="quantity" min="1" max="10" value="1"><br><br>
+                    
+                    <label for="pickup-time">Pickup Time:</label><br>
+                    <input type="time" id="pickup-time" name="pickup-time"><br><br>
+                    
+                    <label for="special-instructions">Special Instructions:</label><br>
+                    <textarea id="special-instructions" name="special-instructions" rows="4" cols="50"></textarea><br><br>
+                </fieldset>
+
+                <fieldset>
+                    <legend>Pickup or Delivery?</legend>
+                    <input type="radio" id="pickup" name="order-type" value="pickup" checked>
+                    <label for="pickup">Pickup</label><br>
+                    <input type="radio" id="delivery" name="order-type" value="delivery">
+                    <label for="delivery">Delivery</label><br><br>
+                </fieldset>
+
+                <input type="checkbox" id="newsletter" name="newsletter">
+                <label for="newsletter">Subscribe to our newsletter for special offers</label><br><br>
+
+                <button type="submit">Place Order</button>
+                <button type="reset">Clear Form</button>
+            </form>
+        </section>
+    </main>
+
+    <footer>
+        <hr>
+        <p><small>&copy; 2026 Ross' Rotisserie. All rights reserved.</small></p>
+        <p><small>Email us at: <a href="mailto:info@rossrotisserie.com">info@rossrotisserie.com</a></small></p>
+    </footer>
+</body>
+</html>
