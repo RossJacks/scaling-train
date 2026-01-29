@@ -1,76 +1,57 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ross' Rotisserie - Home</title>
-</head>
-<body>
-    <header>
-        <h1>Welcome to Ross' Rotisserie</h1>
-        <nav>
-            <ul>
-                <li><a href="index.html">Home</a></li>
-                <li><a href="menu.html">Menu</a></li>
-                <li><a href="about.html">About Us</a></li>
-            </ul>
-        </nav>
-    </header>
-
-    <main>
-        <section>
+<body data-page-title="Ross' Rotisserie - Home" data-page-heading="Welcome to Ross' Rotisserie">
+    <template id="page-content">
+        <section class="card hero">
             <h2>The Best Rotisserie Chicken in Town</h2>
-            <img src="https://picsum.photos/800/400?random=1" alt="Delicious rotisserie chicken" width="800" height="400">
+            <img src="https://picsum.photos/800/400?random=1" alt="Delicious rotisserie chicken" width="800" height="400" loading="lazy">
             <p>At <strong>Ross' Rotisserie</strong>, we serve the most delicious, perfectly seasoned rotisserie chicken you've ever tasted. Our chickens are slow-roasted to perfection, ensuring juicy meat and crispy skin every time.</p>
             <p><em>Fresh, Flavorful, and Always Delicious!</em></p>
         </section>
 
-        <section>
-            <h3>Why Choose Ross' Rotisserie?</h3>
-            <ul>
-                <li>Farm-fresh chicken, locally sourced</li>
-                <li>Secret blend of herbs and spices</li>
-                <li>Cooked fresh daily</li>
-                <li>Family-owned and operated since 2020</li>
-                <li>Affordable prices</li>
-            </ul>
-        </section>
+        <div class="split">
+            <div class="stack">
+                <section class="card">
+                    <h3>Why Choose Ross' Rotisserie?</h3>
+                    <ul>
+                        <li>Farm-fresh chicken, locally sourced</li>
+                        <li>Secret blend of herbs and spices</li>
+                        <li>Cooked fresh daily</li>
+                        <li>Family-owned and operated since 2020</li>
+                        <li>Affordable prices</li>
+                    </ul>
+                </section>
 
-        <section>
-            <h3>Our Specialties</h3>
-            <ol>
-                <li>Classic Rotisserie Chicken</li>
-                <li>Herb & Garlic Chicken</li>
-                <li>Spicy BBQ Chicken</li>
-                <li>Lemon Pepper Chicken</li>
-            </ol>
-        </section>
+                <section class="card">
+                    <h3>Our Specialties</h3>
+                    <ol>
+                        <li>Classic Rotisserie Chicken</li>
+                        <li>Herb & Garlic Chicken</li>
+                        <li>Spicy BBQ Chicken</li>
+                        <li>Lemon Pepper Chicken</li>
+                    </ol>
+                </section>
+            </div>
 
-        <article>
-            <h3>Customer Testimonials</h3>
-            <blockquote>
-                <p>"The best chicken I've ever had! The skin is so crispy and the meat is so tender."</p>
-                <footer>- Sarah M.</footer>
-            </blockquote>
-            <blockquote>
-                <p>"Ross' Rotisserie has become our family's go-to spot for dinner. We love everything on the menu!"</p>
-                <footer>- John D.</footer>
-            </blockquote>
-        </article>
+            <article class="card">
+                <h3>Customer Testimonials</h3>
+                <blockquote>
+                    <p>"The best chicken I've ever had! The skin is so crispy and the meat is so tender."</p>
+                    <footer>- Sarah M.</footer>
+                </blockquote>
+                <blockquote>
+                    <p>"Ross' Rotisserie has become our family's go-to spot for dinner. We love everything on the menu!"</p>
+                    <footer>- John D.</footer>
+                </blockquote>
+            </article>
+        </div>
 
-        <section>
+        <section class="card">
             <h3>Visit Us Today!</h3>
             <p>Come taste the difference at Ross' Rotisserie. We're open 7 days a week!</p>
             <p><strong>Hours:</strong> Monday - Sunday, 11:00 AM - 9:00 PM</p>
             <p><strong>Address:</strong> 123 Chicken Lane, Foodville, FV 12345</p>
             <p><strong>Phone:</strong> <a href="tel:555-123-4567">(555) 123-4567</a></p>
         </section>
-    </main>
+    </template>
 
-    <footer>
-        <hr>
-        <p><small>&copy; 2026 Ross' Rotisserie. All rights reserved.</small></p>
-        <p><small>Email us at: <a href="mailto:info@rossrotisserie.com">info@rossrotisserie.com</a></small></p>
-    </footer>
+    <script src="scripts/layout.js" defer></script>
 </body>
-</html>
