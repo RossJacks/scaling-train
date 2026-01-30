@@ -1,3 +1,5 @@
+import { fetchHTML } from './fetch-utils.js';
+
 document.addEventListener("DOMContentLoaded", () => {
     const pageTitle = document.body.dataset.pageTitle || "Ross' Rotisserie";
     const pageHeading = document.body.dataset.pageHeading || "Ross' Rotisserie";
@@ -8,13 +10,7 @@ document.addEventListener("DOMContentLoaded", () => {
         return;
     }
 
-    fetch("template.html")
-        .then((response) => {
-            if (!response.ok) {
-                throw new Error("Failed to load template");
-            }
-            return response.text();
-        })
+    fetchHTML("template.html")
         .then((html) => {
             const parser = new DOMParser();
             const doc = parser.parseFromString(html, "text/html");

@@ -1,3 +1,5 @@
+import { fetchHTML } from './fetch-utils.js';
+
 document.addEventListener("DOMContentLoaded", () => {
     const includeTargets = Array.from(document.querySelectorAll("[data-include]"));
 
@@ -8,13 +10,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 return Promise.resolve();
             }
 
-            return fetch(url)
-                .then((response) => {
-                    if (!response.ok) {
-                        throw new Error(`Failed to load ${url}`);
-                    }
-                    return response.text();
-                })
+            return fetchHTML(url)
                 .then((html) => {
                     el.innerHTML = html;
                 })
