@@ -1,6 +1,7 @@
 from django.db.models import Prefetch
-from django.shortcuts import render
+from django.shortcuts import redirect, render
 
+from .forms import ReviewForm
 from .models import (
     Award,
     BusinessHour,
@@ -59,4 +60,15 @@ def about(request):
 
 
 def reviews(request):
-    return render(request, "reviews.html", {"reviews": Review.objects.all()})
+    if request.method == "POST":
+        form = ReviewForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect("reviews")
+    else:
+        form = ReviewForm()
+    return render(
+        request,
+        "reviews.html",
+        {"reviews": Review.objects.all(), "form": form},
+    )
