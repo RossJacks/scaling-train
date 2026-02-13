@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+
+{% block title %}Ross' Rotisserie - Reviews{% endblock %}
+{% block page_heading %}Customer Reviews{% endblock %}
+
+{% block content %}
+<section class="card hero">
+    <h2>Our Guests Speak</h2>
+    <img src="https://picsum.photos/800/400?random=8" alt="Happy customers at Ross' Rotisserie" width="800" height="400" loading="lazy">
+    <p>We take pride in every meal we serve. Here is what customers are sharing after their visits.</p>
+</section>
+
+<section class="card full">
+    <h3>Latest Reviews</h3>
+    {% if reviews %}
+        <div class="reviews-grid">
+            {% for review in reviews %}
+                <article class="review-card">
+                    <header>
+                        <h4>{{ review.title }}</h4>
+                        <p class="review-meta">By {{ review.name }} • {{ review.created_at|date:"M d, Y" }} • Rating: {{ review.rating }}/5</p>
+                    </header>
+                    <p>{{ review.body }}</p>
+                </article>
+            {% endfor %}
+        </div>
+    {% else %}
+        <p>We do not have any reviews yet. Check back soon or add one through the admin dashboard.</p>
+    {% endif %}
+</section>
+
+<section class="card">
+    <h3>Leave Feedback</h3>
+    <p>We love hearing from you. Share feedback with our team in person or email <a href="mailto:feedback@rossrotisserie.com">feedback@rossrotisserie.com</a>.</p>
+</section>
+{% endblock %}

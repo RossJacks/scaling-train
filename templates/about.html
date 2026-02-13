@@ -1,0 +1,165 @@
+{% extends "base.html" %}
+
+{% block title %}Ross' Rotisserie - About Us{% endblock %}
+{% block page_heading %}About Ross' Rotisserie{% endblock %}
+
+{% block content %}
+<section class="card hero">
+    <h2>Our Story</h2>
+    <img src="https://picsum.photos/800/400?random=4" alt="Ross' Rotisserie storefront" width="800" height="400" loading="lazy">
+    <p>Ross' Rotisserie was founded in <time datetime="2020">2020</time> by Ross Jackson, a passionate chef with a dream of bringing authentic, flavorful rotisserie chicken to the community. What started as a small family operation has grown into a beloved local favorite.</p>
+    <p>Our commitment to quality has never wavered. We use only the <strong>freshest ingredients</strong> and <strong>time-tested cooking methods</strong> to ensure every chicken that leaves our kitchen is absolutely perfect.</p>
+</section>
+
+<article class="card team-grid full">
+    <h3 class="team-title">Meet the Team</h3>
+    {% for member in team %}
+        <section class="team-member">
+            <h4>{{ member.name }} - {{ member.role }}</h4>
+            {% if member.image_url %}
+                <img src="{{ member.image_url }}" alt="{{ member.name }}" width="300" height="300" loading="lazy">
+            {% endif %}
+            <p>{{ member.bio }}</p>
+        </section>
+    {% empty %}
+        <p>Our team details will be posted soon.</p>
+    {% endfor %}
+</article>
+
+<div class="pair">
+    <section class="card">
+        <h3>Our Values</h3>
+        <ul>
+            <li><strong>Quality:</strong> We never compromise on the quality of our ingredients or our cooking process</li>
+            <li><strong>Community:</strong> We're proud to be a part of this wonderful community and give back whenever we can</li>
+            <li><strong>Sustainability:</strong> We source our chickens from local, sustainable farms</li>
+            <li><strong>Excellence:</strong> We strive for excellence in everything we do, from cooking to customer service</li>
+            <li><strong>Family:</strong> We treat our customers and employees like family</li>
+        </ul>
+    </section>
+
+    <section class="card">
+        <h3>Awards & Recognition</h3>
+        <table>
+            <thead>
+                <tr>
+                    <th>Year</th>
+                    <th>Award</th>
+                    <th>Organization</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for award in awards %}
+                    <tr>
+                        <td>{{ award.year }}</td>
+                        <td>{{ award.title }}</td>
+                        <td>{{ award.organization }}</td>
+                    </tr>
+                {% empty %}
+                    <tr>
+                        <td colspan="3">New awards will be posted as they are announced.</td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </section>
+</div>
+
+<section class="card full">
+    <h3>Location & Hours</h3>
+    {% if location %}
+        <address>
+            <strong>{{ location.name }}</strong><br>
+            {{ location.address_line1 }}<br>
+            {% if location.address_line2 %}{{ location.address_line2 }}<br>{% endif %}
+            {{ location.city }}, {{ location.region }} {{ location.postal_code }}<br>
+            Phone: <a href="tel:{{ location.phone }}">{{ location.phone }}</a><br>
+            Email: <a href="mailto:{{ location.email }}">{{ location.email }}</a>
+        </address>
+    {% endif %}
+
+    <h4>Business Hours</h4>
+    {% if hours %}
+        <table>
+            <thead>
+                <tr>
+                    <th>Day</th>
+                    <th>Hours</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for hour in hours %}
+                    <tr>
+                        <td>{{ hour.day_label }}</td>
+                        <td>{{ hour.hours }}</td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    {% endif %}
+</section>
+
+<section class="card full">
+    <h3>Get In Touch</h3>
+    <p>We'd love to hear from you! Whether you have questions, feedback, or just want to say hello, feel free to reach out.</p>
+    <form action="#" method="post">
+        <div class="form-field">
+            <label for="contact-name">Name:</label>
+            <input type="text" id="contact-name" name="contact-name" required>
+        </div>
+
+        <div class="form-field">
+            <label for="contact-email">Email:</label>
+            <input type="email" id="contact-email" name="contact-email" required>
+        </div>
+
+        <div class="form-field">
+            <label for="subject">Subject:</label>
+            <input type="text" id="subject" name="subject">
+        </div>
+
+        <div class="form-field">
+            <label for="message">Message:</label>
+            <textarea id="message" name="message" rows="6" cols="50" required></textarea>
+        </div>
+
+        <button type="submit">Send Message</button>
+    </form>
+</section>
+
+<section class="card">
+    <h3>Follow Us</h3>
+    <p>Stay connected with Ross' Rotisserie on social media!</p>
+    <ul>
+        <li><a href="#" target="_blank" rel="noopener">Facebook</a></li>
+        <li><a href="#" target="_blank" rel="noopener">Instagram</a></li>
+        <li><a href="#" target="_blank" rel="noopener">Twitter</a></li>
+    </ul>
+</section>
+
+<aside class="card">
+    <h4>Fun Facts</h4>
+    <ul>
+        <li>We serve over <strong>500 chickens</strong> every week!</li>
+        <li>Our signature spice blend contains <strong>12 secret ingredients</strong></li>
+        <li>Each chicken takes <strong>90 minutes</strong> to cook perfectly</li>
+        <li>We've been featured in <strong>15 local publications</strong></li>
+    </ul>
+</aside>
+
+<section class="card">
+    <h3>Employment</h3>
+    <p>Interested in joining the Ross' Rotisserie family? We're always looking for talented, enthusiastic team members!</p>
+    <p><strong>Current Openings:</strong></p>
+    <ol>
+        <li>Line Cook</li>
+        <li>Server</li>
+        <li>Delivery Driver</li>
+    </ol>
+    <p>Send your resume to <a href="mailto:jobs@rossrotisserie.com">jobs@rossrotisserie.com</a></p>
+</section>
+{% endblock %}
+
+{% block page_footer %}
+<p><small>Website designed for educational purposes to demonstrate HTML basics.</small></p>
+{% endblock %}

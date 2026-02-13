@@ -1,0 +1,69 @@
+{% extends "base.html" %}
+
+{% block title %}Ross' Rotisserie - Home{% endblock %}
+{% block page_heading %}Welcome to Ross' Rotisserie{% endblock %}
+
+{% block content %}
+<section class="card hero">
+    <h2>The Best Rotisserie Chicken in Town</h2>
+    <img src="https://picsum.photos/800/400?random=1" alt="Delicious rotisserie chicken" width="800" height="400" loading="lazy">
+    <p>At <strong>Ross' Rotisserie</strong>, we serve the most delicious, perfectly seasoned rotisserie chicken you've ever tasted. Our chickens are slow-roasted to perfection, ensuring juicy meat and crispy skin every time.</p>
+    <p><em>Fresh, Flavorful, and Always Delicious!</em></p>
+</section>
+
+<div class="split">
+    <div class="stack">
+        <section class="card">
+            <h3>Why Choose Ross' Rotisserie?</h3>
+            <ul>
+                <li>Farm-fresh chicken, locally sourced</li>
+                <li>Secret blend of herbs and spices</li>
+                <li>Cooked fresh daily</li>
+                <li>Family-owned and operated since 2020</li>
+                <li>Affordable prices</li>
+            </ul>
+        </section>
+
+        <section class="card">
+            <h3>Our Specialties</h3>
+            <ol>
+                <li>Classic Rotisserie Chicken</li>
+                <li>Herb & Garlic Chicken</li>
+                <li>Spicy BBQ Chicken</li>
+                <li>Lemon Pepper Chicken</li>
+            </ol>
+        </section>
+    </div>
+
+    <article class="card">
+        <h3>Customer Testimonials</h3>
+        {% for testimonial in testimonials %}
+            <blockquote>
+                <p>"{{ testimonial.quote }}"</p>
+                <footer>- {{ testimonial.name }}</footer>
+            </blockquote>
+        {% empty %}
+            <p>We love hearing from our guests. Check back soon for testimonials.</p>
+        {% endfor %}
+    </article>
+</div>
+
+<section class="card">
+    <h3>Visit Us Today!</h3>
+    <p>Come taste the difference at Ross' Rotisserie. We're open 7 days a week!</p>
+    {% if hours %}
+        <div>
+            <strong>Hours:</strong>
+            <ul class="hours-list">
+                {% for hour in hours %}
+                    <li><strong>{{ hour.day_label }}:</strong> {{ hour.hours }}</li>
+                {% endfor %}
+            </ul>
+        </div>
+    {% endif %}
+    {% if location %}
+        <p><strong>Address:</strong> {{ location.address_line1 }}{% if location.address_line2 %}, {{ location.address_line2 }}{% endif %}, {{ location.city }}, {{ location.region }} {{ location.postal_code }}</p>
+        <p><strong>Phone:</strong> <a href="tel:{{ location.phone }}">{{ location.phone }}</a></p>
+    {% endif %}
+</section>
+{% endblock %}

@@ -1,0 +1,166 @@
+{% extends "base.html" %}
+
+{% block title %}Ross' Rotisserie - Menu{% endblock %}
+{% block page_heading %}Ross' Rotisserie Menu{% endblock %}
+
+{% block content %}
+<section class="card hero">
+    <h2>Our Delicious Offerings</h2>
+    <img src="https://picsum.photos/800/400?random=2" alt="Variety of rotisserie dishes" width="800" height="400" loading="lazy">
+</section>
+
+{% if rotisserie_category %}
+    <section class="card full">
+        <h3>{{ rotisserie_category.name }}</h3>
+        <table>
+            {% if rotisserie_category.description %}
+                <caption>{{ rotisserie_category.description }}</caption>
+            {% endif %}
+            <thead>
+                <tr>
+                    <th>Item</th>
+                    <th>Description</th>
+                    <th>Price</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for item in rotisserie_category.items.all %}
+                    <tr>
+                        <td>{{ item.name }}</td>
+                        <td>{{ item.description }}</td>
+                        <td>{% if item.price %}${{ item.price|floatformat:2 }}{% endif %}</td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </section>
+{% endif %}
+
+<div class="split">
+    {% if sides_category %}
+        <section class="card">
+            <h3>{{ sides_category.name }}</h3>
+            {% if sides_category.image_url %}
+                <img src="{{ sides_category.image_url }}" alt="{{ sides_category.name }}" width="600" height="300" loading="lazy">
+            {% endif %}
+            <dl>
+                {% for item in sides_category.items.all %}
+                    <dt>{{ item.name }}</dt>
+                    <dd>{{ item.description }}</dd>
+                {% endfor %}
+            </dl>
+        </section>
+    {% endif %}
+
+    <div class="stack">
+        {% if beverages_category %}
+            <section class="card">
+                <h3>{{ beverages_category.name }}</h3>
+                <ul>
+                    {% for item in beverages_category.items.all %}
+                        <li>{{ item.name }}</li>
+                    {% endfor %}
+                </ul>
+            </section>
+        {% endif %}
+
+        {% if desserts_category %}
+            <section class="card">
+                <h3>{{ desserts_category.name }}</h3>
+                <ol>
+                    {% for item in desserts_category.items.all %}
+                        <li>{{ item.name }}</li>
+                    {% endfor %}
+                </ol>
+            </section>
+        {% endif %}
+    </div>
+</div>
+
+<aside class="card">
+    <h4>Special Offers</h4>
+    {% if special_offers %}
+        {% for offer in special_offers %}
+            <p><mark>{{ offer.title }}:</mark> {{ offer.details }}</p>
+        {% endfor %}
+    {% else %}
+        <p>Check back soon for fresh specials.</p>
+    {% endif %}
+</aside>
+
+<section class="card full">
+    <h3>Order Online</h3>
+    <form action="#" method="post">
+        <fieldset>
+            <legend>Contact Information</legend>
+            <div class="form-field">
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name" required>
+            </div>
+
+            <div class="form-field">
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required>
+            </div>
+
+            <div class="form-field">
+                <label for="phone">Phone:</label>
+                <input type="tel" id="phone" name="phone">
+            </div>
+        </fieldset>
+
+        <fieldset>
+            <legend>Order Details</legend>
+            <div class="form-field">
+                <label for="item">Select Item:</label>
+                <select id="item" name="item">
+                    <option value="">Choose an option</option>
+                    <option value="whole">Whole Chicken</option>
+                    <option value="half">Half Chicken</option>
+                    <option value="quarter">Quarter Chicken</option>
+                    <option value="family">Family Pack</option>
+                </select>
+            </div>
+
+            <div class="form-field">
+                <label for="quantity">Quantity:</label>
+                <input type="number" id="quantity" name="quantity" min="1" max="10" value="1">
+            </div>
+
+            <div class="form-field">
+                <label for="pickup-time">Pickup Time:</label>
+                <input type="time" id="pickup-time" name="pickup-time">
+            </div>
+
+            <div class="form-field">
+                <label for="special-instructions">Special Instructions:</label>
+                <textarea id="special-instructions" name="special-instructions" rows="4" cols="50"></textarea>
+            </div>
+        </fieldset>
+
+        <fieldset class="choice-group">
+            <legend>Pickup or Delivery?</legend>
+            <div class="form-field">
+                <label>
+                    <input type="radio" id="pickup" name="order-type" value="pickup" checked>
+                    Pickup
+                </label>
+                <label>
+                    <input type="radio" id="delivery" name="order-type" value="delivery">
+                    Delivery
+                </label>
+            </div>
+        </fieldset>
+
+        <div class="form-field">
+            <label>
+                <input type="checkbox" id="newsletter" name="newsletter">
+                Subscribe to our newsletter for special offers
+            </label>
+        </div>
+
+        <button type="submit">Place Order</button>
+        <button type="reset">Clear Form</button>
+    </form>
+</section>
+{% endblock %}

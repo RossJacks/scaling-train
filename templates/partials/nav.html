@@ -1,0 +1,6 @@
+<ul>
+    <li><a href="{% url 'home' %}"{% if request.resolver_match.url_name == 'home' %} aria-current="page"{% endif %}>Home</a></li>
+    <li><a href="{% url 'menu' %}"{% if request.resolver_match.url_name == 'menu' %} aria-current="page"{% endif %}>Menu</a></li>
+    <li><a href="{% url 'about' %}"{% if request.resolver_match.url_name == 'about' %} aria-current="page"{% endif %}>About Us</a></li>
+    <li><a href="{% url 'reviews' %}"{% if request.resolver_match.url_name == 'reviews' %} aria-current="page"{% endif %}>Reviews</a></li>
+</ul>
