@@ -43,12 +43,16 @@
             {% if sides_category.image_url %}
                 <img src="{{ sides_category.image_url }}" alt="{{ sides_category.name }}" width="600" height="300" loading="lazy">
             {% endif %}
-            <dl>
+            <ul class="menu-list">
                 {% for item in sides_category.items.all %}
-                    <dt>{{ item.name }}</dt>
-                    <dd>{{ item.description }}</dd>
+                    <li class="menu-item">
+                        <strong>{{ item.name }}</strong>
+                        {% if item.description %}
+                            <span class="menu-item-desc">{{ item.description }}</span>
+                        {% endif %}
+                    </li>
                 {% endfor %}
-            </dl>
+            </ul>
         </section>
     {% endif %}
 
@@ -56,9 +60,14 @@
         {% if beverages_category %}
             <section class="card">
                 <h3>{{ beverages_category.name }}</h3>
-                <ul>
+                <ul class="menu-list">
                     {% for item in beverages_category.items.all %}
-                        <li>{{ item.name }}</li>
+                        <li class="menu-item">
+                            <strong>{{ item.name }}</strong>
+                            {% if item.description %}
+                                <span class="menu-item-desc">{{ item.description }}</span>
+                            {% endif %}
+                        </li>
                     {% endfor %}
                 </ul>
             </section>
@@ -67,11 +76,16 @@
         {% if desserts_category %}
             <section class="card">
                 <h3>{{ desserts_category.name }}</h3>
-                <ol>
+                <ul class="menu-list">
                     {% for item in desserts_category.items.all %}
-                        <li>{{ item.name }}</li>
+                        <li class="menu-item">
+                            <strong>{{ item.name }}</strong>
+                            {% if item.description %}
+                                <span class="menu-item-desc">{{ item.description }}</span>
+                            {% endif %}
+                        </li>
                     {% endfor %}
-                </ol>
+                </ul>
             </section>
         {% endif %}
     </div>
